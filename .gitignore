@@ -1,0 +1,7 @@
+# dependencies
+/node_modules
+/client/node_modules
+
+.idea
+
+# .env - this file in real project should be also ignored, for this educational project I do not.
