@@ -1,0 +1,19 @@
+@import "../../../common/styles/colors.scss";
+
+.button {
+  border: none;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.option-button {
+  background-color: $color-grey-mid-grey;
+}
+
+.submit-button {
+  background-color: $color-netflix-red;
+}

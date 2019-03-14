@@ -1,0 +1,16 @@
+.movies-grid-item {
+  font-size: 1.6rem;
+  list-style: none;
+  padding: 1%;
+  width: 30%;
+
+  .movies-grid-item-image {
+    width: 100%;
+  }
+
+  .movies-grid-item-header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+

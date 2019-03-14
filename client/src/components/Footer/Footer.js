@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
 
-const Footer = () => <footer className="footer">This is footer!</footer>;
+const Footer = () => <footer className="footer">Netflix 2019</footer>;
 
 export default Footer;

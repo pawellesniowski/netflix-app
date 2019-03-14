@@ -1,0 +1,20 @@
+@import "../../common/styles/colors";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+.page-layout {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 5rem;
+  background-color: $color-grey-mercury;
+}
+
+

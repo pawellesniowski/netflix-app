@@ -1,0 +1,9 @@
+@import "../../common/styles/colors.scss";
+@import "../../common/styles/mixins.scss";
+
+.navigation {
+  @include contentContainer;
+  display: flex;
+  justify-content: flex-end;
+  background-color: $color-grey-black;
+}

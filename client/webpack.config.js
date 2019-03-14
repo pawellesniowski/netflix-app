@@ -10,6 +10,7 @@ module.exports = ({mode, presets} = {mode: 'production', presets: []}) => {
       output: {
         filename: './bundle.js'
       },
+      devtool: "source-map",
       module: {
         rules: [
           {
@@ -31,6 +32,43 @@ module.exports = ({mode, presets} = {mode: 'production', presets: []}) => {
             test: /\.css$/,
             use: ['style-loader', 'css-loader'],
           },
+          {
+            test: /\.scss$/,
+            use: [{
+              loader: "style-loader"
+            }, {
+              loader: "css-loader", options: {
+                sourceMap: true
+              }
+            }, {
+              loader: "sass-loader", options: {
+                sourceMap: true
+              }
+            }]
+          },
+          {
+            test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+            use: [{
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: 'fonts/'
+              }
+            }]
+          },
+          {
+            test: /\.(gif|png|jpe?g|svg)$/i,
+            use: [
+              'file-loader',
+              {
+                loader: 'image-webpack-loader',
+                options: {
+                  bypassOnDebug: true, // webpack@1.x
+                  disable: true, // webpack@2.x and newer
+                },
+              },
+            ],
+          }
         ]
       },
       plugins: [

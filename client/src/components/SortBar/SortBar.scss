@@ -1,0 +1,25 @@
+@import "../../common/styles/colors";
+@import "../../common/styles/mixins.scss";
+
+.sort-bar {
+  @include contentContainer;
+  background-color: $color-grey-mid-grey;
+  color: $color-grey-black;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+
+  .sort-bar-menu {
+    display: flex;
+
+    .sort-bar-menu-options {
+      list-style: none;
+      display: flex;
+
+      .sort-bar-menu-item {
+        margin-left: 2rem;
+      }
+    }
+  }
+}
+

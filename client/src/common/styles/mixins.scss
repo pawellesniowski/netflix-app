@@ -1,0 +1,12 @@
+@import "./brake-points";
+
+// creates padings around content:
+@mixin contentContainer {
+  padding: 1rem 20%;
+  @media only screen and (max-width: $tablet-resolution) {
+    padding: 1rem 10%;
+  }
+  @media only screen and (max-width: $mobile-resolution) {
+    padding: 1rem 2%;
+  }
+}

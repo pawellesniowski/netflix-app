@@ -1,0 +1,15 @@
+@import "../../common/styles/colors.scss";
+@import "../../common/styles/mixins.scss";
+
+.header {
+  @include contentContainer;
+  background-color: $color-grey-black;
+  padding: 2rem 0;
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    .logo {
+      max-height: 6rem;
+    }
+  }
+}
