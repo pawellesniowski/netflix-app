@@ -1,0 +1,14 @@
+@import '../../common/styles/colors';
+
+.movie-release-date {
+  color: $color-grey-tuna;
+  font-size: 1rem;
+  border: 1px solid $color-grey-tuna;
+  border-radius: 3px;
+  width: 40px;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1px;
+}

@@ -1,0 +1,55 @@
+@import "../../common/styles/colors.scss";
+@import "../../common/styles/mixins.scss";
+
+
+.search-panel {
+  @include contentContainer;
+  background: linear-gradient( $color-grey-black, rgba(0, 0, 0, 0.6) ), url('../../common/images/netflix-background.jpg');
+  color: $color-grey-mercury;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  .label-text {
+    padding-top: 2rem;
+    text-transform: uppercase;
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .input {
+    width: 100%;
+    padding: 12px 20px;
+    color: $color-grey-mercury;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $color-netflix-red;
+    margin-bottom: 1rem;
+
+    &:focus {
+      outline: none !important;
+      box-shadow: 0 0 10px $color-netflix-red;
+    }
+  }
+
+  .search-option-container {
+    line-height: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 2rem;
+
+    .search-option-text {
+      font-size: 2rem;
+    }
+
+    .button:not(:last-child) {
+      margin-left: 1rem;
+    }
+
+    .button:last-child {
+      margin-left: auto;
+    }
+  }
+}
+

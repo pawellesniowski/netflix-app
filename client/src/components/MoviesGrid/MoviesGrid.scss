@@ -1,0 +1,10 @@
+@import "../../common/styles/mixins";
+@import "../../common/styles/colors";
+
+.movies-grid {
+  @include contentContainer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: $color-grey-mercury;
+}

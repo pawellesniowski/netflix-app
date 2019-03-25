@@ -1,0 +1,56 @@
+@import "../../common/styles/colors.scss";
+@import "../../common/styles/mixins.scss";
+@import "../../common/styles/brake-points";
+
+.movie-details {
+  @include contentContainer;
+  display: flex;
+  background: linear-gradient( $color-grey-black, rgba(0, 0, 0, 0.6) ), url('../../common/images/netflix-background.jpg');
+  color: $color-grey-mercury;
+  font-size: 3rem;
+}
+
+.left-side-container {
+  padding: 2rem 2rem 2rem 0;
+  .image {
+    max-width: 300px;
+  }
+}
+
+.right-side-container {
+  padding: 4rem 2rem;
+  display: block;
+  min-width: 300px;
+  .title {
+    margin-bottom: 0.1rem;
+  }
+  .category {
+    margin-bottom: 1rem;
+  }
+  .production-year {
+    margin-right: 3rem;
+  }
+  .description {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: $mobile-resolution) {
+  .movie-details {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 2rem;
+  }
+  .left-side-container {
+    padding: 1rem;
+    .image {
+      max-width: 200px;
+    }
+  }
+  .right-side-container {
+    padding: 2rem 1rem;
+    display: block;
+    min-width: 200px;
+  }
+}
