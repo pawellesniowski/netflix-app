@@ -4,9 +4,9 @@ import './MovieDetails.scss';
 const MovieDetails = (props) => {
   const {title, release_date, poster_path, overview, runtime} = props.selectedMovie;
   return (
-    <div className="movie-details">
+    <div className="movie-details" data-cy="movie-details">
       <div className="left-side-container">
-        <img className="image" src={poster_path} alt="movie cover"/>
+        <img className="image" src={poster_path} alt="movie cover" data-cy="movie-details-poster"/>
       </div>
       <div className="right-side-container">
         <h2 className="title">{title}</h2>

@@ -3,7 +3,6 @@ import MovieDetails from "../../components/MovieDetails/MovieDetails";
 import MoviesGrid from "../../components/MoviesGrid/MoviesGrid";
 import Footer from "../../components/Footer/Footer";
 import SortBar from "../../components/SortBar/SortBar";
-import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
 
 class DetailsPage extends React.Component {

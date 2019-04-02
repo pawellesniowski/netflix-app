@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieGenres with NO props Match the snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`MovieGenres with props Match the snapshot 1`] = `ShallowWrapper {}`;
