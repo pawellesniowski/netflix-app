@@ -16,7 +16,10 @@ class HomePage extends React.Component {
   componentDidMount() {
     fetch("https://reactjs-cdp.herokuapp.com/movies")
       .then(response => response.json())
-      .then(({data}) => this.setState({movies: data}));
+      .then(({data}) => {
+        // console.log(data)
+        this.setState({movies: data})
+      });
   }
 
   render() {

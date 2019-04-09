@@ -10,3 +10,14 @@ npm run dev
 ```
 npm run build
 ```
+
+### e2e tests:
+```
+npm run cy
+```
+
+### Unit tests:
+```
+npm run test 
+npm run test:w  
+```

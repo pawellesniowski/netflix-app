@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieTitle  with NO props Matches the snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`MovieTitle Component with props Matches the snapshot 1`] = `ShallowWrapper {}`;

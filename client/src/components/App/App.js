@@ -12,8 +12,8 @@ const App = () => {
     <ErrorBoundary>
       <PageLayout>
         <Header />
-        <HomePage/>
-        {/*<DetailsPage/>*/}
+        {/*<HomePage/>*/}
+        <DetailsPage/>
       </PageLayout>
     </ErrorBoundary>
   )

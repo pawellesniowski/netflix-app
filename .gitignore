@@ -1,7 +1,10 @@
-# dependencies
 /node_modules
 /client/node_modules
-
+coverage
 .idea
-
-# .env - this file in real project should be also ignored, for this educational project I do not.
+package-lock.json
+.e2e
+cypress/videos
+cypress/screenshots
+dist
+# .env

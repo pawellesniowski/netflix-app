@@ -3,8 +3,8 @@ import './SortBar.scss';
 
 const SortBar = ({moviesNumber=0}) => {
   return (
-    <div className="sort-bar">
-      <span>{moviesNumber} movies found</span>
+    <div className="sort-bar" data-cy="sort-bar">
+      <span className="sort-bar-info">{moviesNumber} movies found</span>
       <div className="sort-bar-menu">
         <span>Sort by</span>
         <ul className="sort-bar-menu-options">

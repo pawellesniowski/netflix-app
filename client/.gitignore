@@ -1,0 +1,9 @@
+/node_modules
+/client/node_modules
+coverage
+.idea
+package-lock.json
+.e2e
+cypress/videos
+cypress/screenshots
+dist
