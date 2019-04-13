@@ -4,34 +4,36 @@ import MoviesGrid from "../../components/MoviesGrid/MoviesGrid";
 import Footer from "../../components/Footer/Footer";
 import SortBar from "../../components/SortBar/SortBar";
 
+import {connect} from 'react-redux';
+import {fetchMovies} from './homePageActions';
 
 class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movies: []
+    componentDidMount() {
+        this.props.fetchMovies();
     }
-  }
 
-  componentDidMount() {
-    fetch("https://reactjs-cdp.herokuapp.com/movies")
-      .then(response => response.json())
-      .then(({data}) => {
-        // console.log(data)
-        this.setState({movies: data})
-      });
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <SearchPanel/>
-        <SortBar moviesNumber={this.state.movies.length}/>
-        <MoviesGrid movies={this.state.movies}/>
-        <Footer/>
-      </React.Fragment>
-    );
-  }
+    render() {
+        const { movies } = this.props;
+        return (
+            <React.Fragment>
+                <SearchPanel/>
+                <SortBar moviesNumber={movies.length}/>
+                <MoviesGrid movies={movies}/>
+                <Footer/>
+            </React.Fragment>
+        );
+    }
 }
 
-export default HomePage;
+const mapStateToProps = (state) => {
+    console.log('state : ', state);
+    return {
+        movies: state.homePage.movies,
+    }
+};
+
+const mapDispatchToProps = {
+    fetchMovies
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
