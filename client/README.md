@@ -1,5 +1,5 @@
 # React mentoring program
-## Netlifx clone app.
+## Netflix clone app.
 
 ### Running application:
 ```
