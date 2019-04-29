@@ -20,7 +20,7 @@ export const fetchMovies = () => async (dispatch) => {
             throw Error(response.statusText);
         }
         const { data } = await response.json();
-        dispatch(FetchMovies(data))
+        dispatch(FetchMovies(data));
         dispatch(LoadingMovies(false));
     } catch (error) {
         console.log(error)

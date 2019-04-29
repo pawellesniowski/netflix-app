@@ -1,8 +1,8 @@
 import React from 'react';
 import './MovieDetails.scss';
 
-const MovieDetails = (props) => {
-  const {title, release_date, poster_path, overview, runtime} = props.selectedMovie;
+const MovieDetails = ({ selectedMovie }) => {
+  const {title, release_date, poster_path, overview, runtime} = selectedMovie;
   return (
     <div className="movie-details" data-cy="movie-details">
       <div className="left-side-container">
@@ -12,7 +12,7 @@ const MovieDetails = (props) => {
         <h2 className="title">{title}</h2>
         <h5 className="category">Oscar-winning Movies</h5>
         <span className="production-year">{release_date}</span>
-        <span className="duration">{runtime} min</span>
+        <span className="duration">{runtime ? runtime : 120} min</span>
         <p className="description">{overview}</p>
       </div>
     </div>

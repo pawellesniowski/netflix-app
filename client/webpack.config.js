@@ -8,7 +8,8 @@ module.exports = ({mode, presets} = {mode: 'production', presets: []}) => {
   return webpackMerge({
       mode,
       output: {
-        filename: './bundle.js'
+        filename: './bundle.js',
+        publicPath: '/',
       },
       devtool: "source-map",
       module: {
