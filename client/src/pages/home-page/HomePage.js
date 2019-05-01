@@ -9,14 +9,29 @@ import {fetchMovies} from './homePageActions';
 
 class HomePage extends React.Component {
     componentDidMount() {
-        this.props.fetchMovies();
+        const searchDetails = this.props.location.search;
+        if(searchDetails) {
+            this.props.fetchMovies(searchDetails);
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        const searchDetails = this.props.location.search;
+        if(prevProps.location.search !== searchDetails) {
+            this.props.fetchMovies(searchDetails)
+        }
     }
 
     render() {
         const { movies } = this.props;
+        const submitFilmSearch = ({searchBy, searchTerm}) => {
+            this.props.history.push(`/search/movies?search=${searchTerm}&searchBy=${searchBy}`);
+        };
+        console.log("HomePage: this.props: ", this.props.location);
+
         return (
             <React.Fragment>
-                <SearchPanel/>
+                <SearchPanel onSubmit={submitFilmSearch}/>
                 <SortBar moviesNumber={movies.length}/>
                 <MoviesGrid movies={movies}/>
                 <Footer/>

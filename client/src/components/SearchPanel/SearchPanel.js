@@ -1,22 +1,53 @@
 import React from 'react';
+import {Field, reduxForm} from 'redux-form';
 import Button from "../ui-elements/Button/Button";
 import './SearchPanel.scss';
+import {connect} from 'react-redux';
+import { loadInitial } from './searchPanelLoadInitial';
+const data = {searchBy: 'title'};
 
-const SearchPanel = () => {
-  return (
-    <div className="search-panel" data-cy="search-panel">
-      <label htmlFor="titleInput" data-cy="search-input">
-        <span className="label-text">Find Your Movie</span>
-        <input className="input" placeholder="Find Your Movie"/>
-      </label>
-      <div className="search-option-container" data-cy="search-option-container">
-        <span className="search-option-text">Search by</span>
-        <Button message="title" mode="default"/>
-        <Button message="genre" mode="default"/>
-        <Button message="search" mode="submit"/>
-      </div>
-    </div>
-  );
-};
+class SearchPanel extends React.Component {
+
+    componentDidMount() {
+        this.props.loadInitial(data);
+    }
+
+    render() {
+        const { handleSubmit, searchForm, initialValues } = this.props;
+
+        console.log("initialValues: ", initialValues);
+        console.log("searchForm: ", searchForm);
+        return (
+            <form onSubmit={handleSubmit} className="search-panel" data-cy="search-panel">
+                <label htmlFor="titleInput" data-cy="search-input">
+                    <span className="label-text">Find Your Movie</span>
+                    <Field name="searchTerm" component="input" type="text" className="input"
+                           placeholder="Find Your Movie"/>
+                </label>
+                <div className="search-option-container" data-cy="search-option-container">
+                    <span className="search-option-text">Search by</span>
+
+                    <div className="search-radio-buttons">
+                        <label><Field name="searchBy" component="input" type="radio" value="title"/><span>Title</span></label>
+                        <label><Field name="searchBy" component="input" type="radio" value="genre"/><span>Genre</span></label>
+                    </div>
+                    <Button type="submit" message="search" mode="submit"/>
+                </div>
+            </form>
+        );
+    }
+}
+
+SearchPanel = reduxForm({
+    form: 'searchForm'
+})(SearchPanel);
+
+SearchPanel = connect(
+    state => ({
+        initialValues: state.formInitial.data,
+        searchForm: state.form.searchForm,
+    }),
+    {loadInitial},
+)(SearchPanel);
 
 export default SearchPanel;

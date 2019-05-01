@@ -13,7 +13,7 @@ class DetailsPage extends React.Component {
         this.props.fetchFilm(this.props.match.params.id);
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    componentDidUpdate(prevProps) {
         const filmId = this.props.match.params.id;
         if (prevProps.match.params.id !== filmId) {
             this.props.fetchFilm(filmId);

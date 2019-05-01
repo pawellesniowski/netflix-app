@@ -1,17 +1,26 @@
 @import "../../../common/styles/colors.scss";
 
 .button {
-  border: none;
-  color: white;
-  padding: 0.3rem 0.6rem;
-  text-align: center;
+  width: 120px;
+  height: 40px;
+  margin: 4px;
+  border-radius: 4px;
+  border: 1px solid $color-netflix-red;
   text-decoration: none;
-  display: inline-block;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  outline: $color-netflix-red;
+
+  &:hover {
+    box-shadow: 0 0 10px $color-netflix-red;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
 }
 
 .option-button {
-  background-color: $color-grey-mid-grey;
+  background-color: $color-netflix-red;
 }
 
 .submit-button {

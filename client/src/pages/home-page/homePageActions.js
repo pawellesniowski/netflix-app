@@ -12,10 +12,10 @@ const FetchMovies = (movies) => ({
     type: FETCH_MOVIES,
     payload: movies
 });
-export const fetchMovies = () => async (dispatch) => {
+export const fetchMovies = (searchDetails) => async (dispatch) => {
     dispatch(LoadingMovies(true));
     try {
-        const response = await fetch("https://reactjs-cdp.herokuapp.com/movies");
+        const response = await fetch(`https://reactjs-cdp.herokuapp.com/movies${searchDetails}`);
         if (!response.ok) {
             throw Error(response.statusText);
         }
