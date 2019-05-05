@@ -4,13 +4,13 @@
 
 .search-panel {
   @include contentContainer;
-  background: linear-gradient( $color-grey-black, rgba(0, 0, 0, 0.6) ), url('../../common/images/netflix-background.jpg');
+  background: linear-gradient($color-grey-black, rgba(0, 0, 0, 0.6)), url('../../common/images/netflix-background.jpg');
   color: $color-grey-mercury;
   padding-top: 5rem;
   padding-bottom: 5rem;
 
   .label-text {
-    padding-top: 2rem;
+    padding-top: 3rem;
     text-transform: uppercase;
     display: block;
     font-size: 3rem;
@@ -33,14 +33,52 @@
   }
 
   .search-option-container {
-    line-height: 2rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 2rem;
 
     .search-option-text {
+      margin: 4px 10px 0 0;
       font-size: 2rem;
+    }
+
+    .search-radio-buttons {
+      margin: 4px;
+
+      label {
+        float: left;
+        width: 120px;
+        height: 40px;
+        margin: 0 4px;
+        border-radius: 4px;
+        border: 1px solid $color-netflix-red;
+        overflow: auto;
+
+        &:hover {
+          box-shadow: 0 0 10px $color-netflix-red;
+        }
+
+        span {
+          text-align: center;
+          font-size: 2rem;
+          display: block;
+          color: $color-grey-mid-grey;
+          line-height: 38px;
+        }
+
+        input {
+          position: absolute;
+          top: -20px;
+        }
+
+        input:checked + span {
+          color: $color-netflix-red;
+        }
+
+      }
+
+
     }
 
     .button:not(:last-child) {

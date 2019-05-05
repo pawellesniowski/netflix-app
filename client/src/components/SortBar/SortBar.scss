@@ -17,7 +17,15 @@
       display: flex;
 
       .sort-bar-menu-item {
+        cursor: pointer;
         margin-left: 2rem;
+        &:hover {
+          color: $color-netflix-red;
+        }
+      }
+
+      .active {
+        color: $color-netflix-red;
       }
     }
   }
