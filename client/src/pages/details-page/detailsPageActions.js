@@ -2,6 +2,7 @@ import {
     LOADING_FILM,
     FETCH_FILM,
     FETCH_SUGGESTED_FILMS,
+    SORT_FILMS,
 } from "./detailsPageConstants";
 
 const FetchSuggestedFilms = (suggestedFilms) => ({
@@ -40,3 +41,8 @@ export const fetchFilm = (id) => async (dispatch) => {
         console.log(error)
     }
 };
+
+export const SortFilms = (sortBy) => ({
+    type: SORT_FILMS,
+    payload: sortBy,
+});

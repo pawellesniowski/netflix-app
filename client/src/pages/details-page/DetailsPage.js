@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { withRouter } from 'react-router-dom'
 import MovieDetails from "../../components/MovieDetails/MovieDetails";
 import MoviesGrid from "../../components/MoviesGrid/MoviesGrid";
 import Footer from "../../components/Footer/Footer";
 import SortBar from "../../components/SortBar/SortBar";
 import Navigation from "../../components/Navigation/Navigation";
-import { fetchFilm } from './detailsPageActions';
-import { withRouter } from 'react-router-dom'
+import { fetchFilm, SortFilms } from './detailsPageActions';
 
 class DetailsPage extends React.Component {
     componentDidMount() {
@@ -21,12 +21,13 @@ class DetailsPage extends React.Component {
     }
 
     render() {
+        const {film, SortFilms, suggestedFilms, sortedBy} = this.props;
         return (
             <React.Fragment>
                 <Navigation/>
-                <MovieDetails selectedMovie={this.props.film}/>
-                <SortBar moviesNumber={this.props.suggestedFilms.length}/>
-                <MoviesGrid movies={this.props.suggestedFilms}/>
+                <MovieDetails selectedMovie={film}/>
+                <SortBar moviesNumber={suggestedFilms.length} sorting={SortFilms} sortedBy={sortedBy}/>
+                <MoviesGrid movies={suggestedFilms}/>
                 <Footer/>
             </React.Fragment>
         )
@@ -37,11 +38,13 @@ function mapStateToProps(state) {
     return {
         film: state.detailsPage.film,
         suggestedFilms: state.detailsPage.suggestedFilms,
+        sortedBy: state.detailsPage.sortedBy,
     }
 }
 
 const mapDispatchToProps = {
     fetchFilm,
+    SortFilms,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DetailsPage));

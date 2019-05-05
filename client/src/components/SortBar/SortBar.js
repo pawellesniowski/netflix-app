@@ -1,17 +1,17 @@
 import React from 'react';
 import './SortBar.scss';
 
-const SortBar = ({moviesNumber = 0}) => {
+const SortBar = ({moviesNumber = 0, sorting, sortedBy}) => {
     const handleSorting = (sortBy) => () => {
-        console.log("sort by: ", sortBy);
+        sorting(sortBy);
     };
     return (
         <div className="sort-bar" data-cy="sort-bar">
-      <span className="sort-bar-info">
-          {moviesNumber === 0
-              ? (<>no movies found</>)
-              : (<>{moviesNumber} movies found</>)}
-      </span>
+          <span className="sort-bar-info">
+              {moviesNumber === 0
+                  ? (<>no movies found</>)
+                  : (<>{moviesNumber} movies found</>)}
+          </span>
             {moviesNumber === 0
                 ? null
                 : (
@@ -20,14 +20,16 @@ const SortBar = ({moviesNumber = 0}) => {
                         <ul className="sort-bar-menu-options">
                             <li
                                 key="release-date"
-                                className={`sort-bar-menu-item active`}
-                                onClick={handleSorting("release-date")}
-                            >release date</li>
+                                className={`sort-bar-menu-item ${sortedBy === "release_date" ? "active" : ""}`}
+                                onClick={handleSorting("release_date")}
+                            >release date
+                            </li>
                             <li
                                 key="rating"
-                                className="sort-bar-menu-item"
-                                onClick={handleSorting("date")}
-                            >rating</li>
+                                className={`sort-bar-menu-item ${sortedBy === "vote_count" ? "active" : ""}`}
+                                onClick={handleSorting("vote_count")}
+                            >rating
+                            </li>
                         </ul>
                     </div>
                 )}

@@ -1,6 +1,7 @@
 import {
     LOADING_MOVIES,
     FETCH_MOVIES,
+    SORT_MOVIES,
 } from './homePageConstants';
 
 const LoadingMovies = (status) => ({
@@ -27,3 +28,8 @@ export const fetchMovies = (searchDetails) => async (dispatch) => {
     }
 
 };
+
+export const SortMovies = (sortBy) => ({
+    type: SORT_MOVIES,
+    payload: sortBy,
+});
