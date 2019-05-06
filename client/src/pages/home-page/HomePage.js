@@ -26,8 +26,6 @@ class HomePage extends React.Component {
         const submitFilmSearch = ({searchBy, searchTerm}) => {
             this.props.history.push(`/search/movies?search=${searchTerm}&searchBy=${searchBy}`);
         };
-        console.log("HomePage: this.props: ", this.props.location);
-
         return (
             <React.Fragment>
                 <SearchPanel onSubmit={submitFilmSearch}/>

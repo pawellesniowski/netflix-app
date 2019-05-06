@@ -26,7 +26,7 @@ class SearchPanel extends React.Component {
                         component="input" type="text"
                         className="input"
                         placeholder="Find Your Movie"
-                        autocomplete="off"
+                        autoComplete="off"
                     />
                 </label>
                 <div className="search-option-container" data-cy="search-option-container">
