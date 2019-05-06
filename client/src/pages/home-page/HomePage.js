@@ -1,11 +1,10 @@
 import React from "react";
+import {connect} from 'react-redux';
 import SearchPanel from "../../components/SearchPanel/SearchPanel";
 import MoviesGrid from "../../components/MoviesGrid/MoviesGrid";
 import Footer from "../../components/Footer/Footer";
 import SortBar from "../../components/SortBar/SortBar";
-
-import {connect} from 'react-redux';
-import {fetchMovies} from './homePageActions';
+import {fetchMovies, SortMovies } from './homePageActions';
 
 class HomePage extends React.Component {
     componentDidMount() {
@@ -23,7 +22,7 @@ class HomePage extends React.Component {
     }
 
     render() {
-        const { movies } = this.props;
+        const { movies, SortMovies, sortedBy } = this.props;
         const submitFilmSearch = ({searchBy, searchTerm}) => {
             this.props.history.push(`/search/movies?search=${searchTerm}&searchBy=${searchBy}`);
         };
@@ -32,7 +31,7 @@ class HomePage extends React.Component {
         return (
             <React.Fragment>
                 <SearchPanel onSubmit={submitFilmSearch}/>
-                <SortBar moviesNumber={movies.length}/>
+                <SortBar moviesNumber={movies.length} sorting={SortMovies} sortedBy={sortedBy}/>
                 <MoviesGrid movies={movies}/>
                 <Footer/>
             </React.Fragment>
@@ -43,11 +42,13 @@ class HomePage extends React.Component {
 const mapStateToProps = (state) => {
     return {
         movies: state.homePage.movies,
+        sortedBy: state.homePage.sortedBy,
     }
 };
 
 const mapDispatchToProps = {
-    fetchMovies
+    fetchMovies,
+    SortMovies,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

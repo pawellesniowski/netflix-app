@@ -21,8 +21,13 @@ class SearchPanel extends React.Component {
             <form onSubmit={handleSubmit} className="search-panel" data-cy="search-panel">
                 <label htmlFor="titleInput" data-cy="search-input">
                     <span className="label-text">Find Your Movie</span>
-                    <Field name="searchTerm" component="input" type="text" className="input"
-                           placeholder="Find Your Movie"/>
+                    <Field
+                        name="searchTerm"
+                        component="input" type="text"
+                        className="input"
+                        placeholder="Find Your Movie"
+                        autocomplete="off"
+                    />
                 </label>
                 <div className="search-option-container" data-cy="search-option-container">
                     <span className="search-option-text">Search by</span>
