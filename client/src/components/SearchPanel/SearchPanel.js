@@ -13,10 +13,7 @@ class SearchPanel extends React.Component {
     }
 
     render() {
-        const { handleSubmit, searchForm, initialValues } = this.props;
-
-        console.log("initialValues: ", initialValues);
-        console.log("searchForm: ", searchForm);
+        const { handleSubmit } = this.props;
         return (
             <form onSubmit={handleSubmit} className="search-panel" data-cy="search-panel">
                 <label htmlFor="titleInput" data-cy="search-input">
