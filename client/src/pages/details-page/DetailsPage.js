@@ -1,12 +1,13 @@
 import React from 'react';
-import { connect } from "react-redux";
-import { withRouter } from 'react-router-dom'
+import {connect} from "react-redux";
+import {withRouter} from 'react-router-dom'
 import MovieDetails from "../../components/MovieDetails/MovieDetails";
 import MoviesGrid from "../../components/MoviesGrid/MoviesGrid";
 import Footer from "../../components/Footer/Footer";
 import SortBar from "../../components/SortBar/SortBar";
 import Navigation from "../../components/Navigation/Navigation";
-import { fetchFilm, SortFilms } from './detailsPageActions';
+import {fetchFilm, SortFilms} from './detailsPageActions';
+import NotFound from "../not-found/NotFound";
 
 class DetailsPage extends React.Component {
     componentDidMount() {
@@ -22,13 +23,19 @@ class DetailsPage extends React.Component {
 
     render() {
         const {film, SortFilms, suggestedFilms, sortedBy} = this.props;
+        console.log("film: ", film);
         return (
             <React.Fragment>
-                <Navigation/>
-                <MovieDetails selectedMovie={film}/>
-                <SortBar moviesNumber={suggestedFilms.length} sorting={SortFilms} sortedBy={sortedBy}/>
-                <MoviesGrid movies={suggestedFilms}/>
-                <Footer/>
+                {film.id !== undefined
+                    ? <>
+                        <Navigation/>
+                        <MovieDetails selectedMovie={film}/>
+                        <SortBar moviesNumber={suggestedFilms.length} sorting={SortFilms} sortedBy={sortedBy}/>
+                        <MoviesGrid movies={suggestedFilms}/>
+                        <Footer/>
+                    </>
+                    : <NotFound />
+                }
             </React.Fragment>
         )
     }
