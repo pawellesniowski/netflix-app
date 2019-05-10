@@ -23,7 +23,6 @@ class DetailsPage extends React.Component {
 
     render() {
         const {film, SortFilms, suggestedFilms, sortedBy} = this.props;
-        console.log("film: ", film);
         return (
             <React.Fragment>
                 {film.id !== undefined

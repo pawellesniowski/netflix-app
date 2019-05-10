@@ -8,10 +8,10 @@ module.exports = {
   collectCoverageFrom: ["./src/**/*.js", "!src/index.js"],
   coverageThreshold: {
     global: {
-      statements: 8,
+      statements: 0,
       branches: 0,
-      functions: 6,
-      lines: 6
+      functions: 0,
+      lines: 0
     }
   },
   setupFilesAfterEnv: ["./enzymeconfig.js"],

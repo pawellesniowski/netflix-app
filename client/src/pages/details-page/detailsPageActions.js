@@ -10,13 +10,13 @@ const FetchSuggestedFilms = (suggestedFilms) => ({
     payload: suggestedFilms,
 });
 
-const fetchSuggestedFilms = (genre) => async (dispatch) => {
+export const fetchSuggestedFilms = (genre) => async (dispatch) => {
     const response = await fetch(`https://reactjs-cdp.herokuapp.com/movies?filter=${genre}`);
     const {data} = await response.json();
     dispatch(FetchSuggestedFilms(data));
 };
 
-const LoadingFilm = (payload) => ({
+export const LoadingFilm = (payload) => ({
     type: LOADING_FILM,
     payload,
 });
@@ -38,7 +38,7 @@ export const fetchFilm = (id) => async (dispatch) => {
         dispatch(LoadingFilm(false));
         dispatch(fetchSuggestedFilms(data.genres[0]));
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 };
 

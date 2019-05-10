@@ -8,7 +8,7 @@ describe('SortBar Component', () => {
         component = shallow(<SortBar/>);
     });
 
-    it("Should have container", () => {
+    it("should not render.", () => {
         expect(component.find('[data-cy="sort-bar"]')).toHaveLength(1);
     });
 
@@ -20,12 +20,12 @@ describe('SortBar Component', () => {
 describe('SortBar Component with props', () => {
     it('Shows message "0 movies found" if no props send', () => {
         const component = shallow(<SortBar />);
-        expect(component.text()).toMatch("0 movies foundSort");
+        expect(component.text()).toMatch("no movies found");
     });
 
     it('Shows message "3 movies found" if no props send', () => {
         const component = shallow(<SortBar moviesNumber="3"/>);
-        expect(component.text()).toMatch("3 movies foundSort");
+        expect(component.text()).toMatch("3 movies found");
     });
 });
 

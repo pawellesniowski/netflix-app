@@ -2,7 +2,6 @@ import {
     LOADING_FILM,
     FETCH_FILM,
     FETCH_SUGGESTED_FILMS,
-    SET_FILM_ID,
     SORT_FILMS,
 } from './detailsPageConstants';
 import { sortingFunction } from '../../common/methods';
@@ -16,8 +15,6 @@ const initialState = {
 
 const detailsPageReducer = (state = initialState, action) => {
     switch(action.type) {
-        case SET_FILM_ID:
-            return { ...state, filmId: action.payload };
         case LOADING_FILM:
             return { ...state, loadingFilm: action.payload };
         case FETCH_FILM:
