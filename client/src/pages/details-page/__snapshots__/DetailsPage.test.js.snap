@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders DetailsPage Component 1`] = `ShallowWrapper {}`;
+exports[`DetailswPage snapshot Renders DetailsPage Component 1`] = `ShallowWrapper {}`;

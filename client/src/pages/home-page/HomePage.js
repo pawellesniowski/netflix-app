@@ -6,7 +6,7 @@ import Footer from "../../components/Footer/Footer";
 import SortBar from "../../components/SortBar/SortBar";
 import {fetchMovies, SortMovies } from './homePageActions';
 
-class HomePage extends React.Component {
+export class HomePage extends React.Component {
     componentDidMount() {
         const searchDetails = this.props.location.search;
         if(searchDetails) {

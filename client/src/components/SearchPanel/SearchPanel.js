@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import { loadInitial } from './searchPanelLoadInitial';
 const data = {searchBy: 'title'};
 
-class SearchPanel extends React.Component {
+export class SearchPanel extends React.Component {
 
     componentDidMount() {
         this.props.loadInitial(data);

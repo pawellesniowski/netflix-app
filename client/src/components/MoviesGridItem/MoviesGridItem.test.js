@@ -1,11 +1,12 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import MoviesGridItem from './MoviesGridItem';
+import movie from '../../../__mocks__/fileMock';
 
 describe("MoviesGridItem Component", () => {
     let component;
     beforeEach(() => {
-        component = shallow(<MoviesGridItem/>);
+        component = shallow(<MoviesGridItem key={movie.id} movie={movie}/>);
     });
 
     it("Renders the container", () => {
