@@ -1,27 +1,37 @@
 import React from 'react';
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import PageLayout from '../PageLayout/PageLayout';
-import { BrowserRouter as Router, Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import './App.scss';
-import DetailsPage from "../../pages/details-page/DetailsPage";
-import HomePage from "../../pages/home-page/HomePage";
-import NotFound from "../../pages/not-found/NotFound";
 import Header from "../Header/Header";
+import { routes } from "../../app/routes";
+
+function RedirectWithStatus({ from, to, status }) {
+    return (
+        <Route
+            render={({ staticContext }) => {
+                if (staticContext) staticContext.status = status;
+                return <Redirect from={from} to={to} />;
+            }}
+        />
+    );
+}
 
 const App = () => {
   return (
     <ErrorBoundary>
       <PageLayout>
         <Header />
-        <Router>
             <Switch>
-                <Route path="/search/:search?" component={HomePage} />
-                <Route path="/film/:id" component={DetailsPage} />
-                <Redirect exact from="/" to="/search" />
-                <Route path="/page-not-found" component={NotFound} />
+                {
+                    routes.map(route => (
+                        <Route {...route} />
+                    ))
+                }
                 <Redirect from="*" to="/page-not-found" />
+                <RedirectWithStatus status={301} from="/search/:search" to="/search" />
+                <RedirectWithStatus status={302} from="/search/:search" to="/search" />
             </Switch>
-        </Router>
       </PageLayout>
     </ErrorBoundary>
   )

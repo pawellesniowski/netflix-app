@@ -1,19 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {hydrate} from 'react-dom';
 import App from './components/App/App';
-import configureStore from './app/store/configureStore';
 import Provider from "react-redux/es/components/Provider";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import {PersistGate} from 'redux-persist/integration/react';
+import {reduxPersistor, reduxStore} from "./app/store/configureStore";
+import {PersistGate} from "redux-persist/integration/react";
+import {BrowserRouter as Router} from 'react-router-dom';
 
-const store =  configureStore().store;
-const persistor =  configureStore().persistor;
-
-ReactDOM.render(
-    <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
+hydrate(
+    <Provider store={reduxStore}>
+        <PersistGate loading={null} persistor={reduxPersistor}>
             <Router>
-                <Route path="/" component={App}/>
+                <App/>
             </Router>
         </PersistGate>
     </Provider>,

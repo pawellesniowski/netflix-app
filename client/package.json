@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookies-js": "^1.2.3",
     "dotenv-webpack": "^1.7.0",
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
@@ -27,6 +28,7 @@
     "redux": "^4.0.1",
     "redux-form": "^8.2.0",
     "redux-persist": "^5.10.0",
+    "redux-persist-cookie-storage": "^1.0.0",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0"
   },
